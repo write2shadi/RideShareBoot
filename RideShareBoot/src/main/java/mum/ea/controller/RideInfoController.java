@@ -53,7 +53,7 @@ public class RideInfoController {
 	/**
 	 * Bind all rideInfos list
 	 * */
-	@RequestMapping(value = "/rideInfos",  method = RequestMethod.GET)
+	@RequestMapping(value = "/rideinfos",  method = RequestMethod.GET)
     public ModelAndView populateRideInfos() 
     {
         List<RideInfo> rideInfos = rideInfoService.getAllRideInfos();        
@@ -94,7 +94,7 @@ public class RideInfoController {
 
 
         // ok, redirect
-        return "redirect:/rideInfos";
+        return "redirect:/rideinfos";
     }
     
 
