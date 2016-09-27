@@ -48,7 +48,12 @@
 			</tr>
 			<tr>
 				<td>Pick Up Date</td>
-				<td> <input type="datetime" name="pickUpDate" id="pickUpDate" value="${form.pickUpDate?datetime}" /></td>				
+				<td> <input type="date" name="pickUpDate" id="pickUpDate" value="${form.pickUpDate?date}" /></td>				
+			</tr>
+			
+			<tr>
+				<td>Pick Up Time</td>
+				<td> <input type="time" name="pickUpTime" id="pickUpTime" value="${form.pickUpTime?time}" /></td>				
 			</tr>
 			<tr>
 				<td colspan="3"><input type="submit" value="Add Ride"/></td>

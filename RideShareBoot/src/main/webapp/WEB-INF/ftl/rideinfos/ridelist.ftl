@@ -18,6 +18,7 @@
 	    <td>dropOffState</td>
 	    <td>dropOffZip</td>
         <td>pickUpDate</td>
+        <td>pickUpTime</td>
 	  </tr>
 	  <#list allRideInfos as rideinfo>	  	  
       <tr>
@@ -31,6 +32,7 @@
 	    <td>${rideinfo.dropOffState}</td>
 	    <td>${rideinfo.dropOffZip}</td>
         <td>${rideinfo.pickUpDate}</td>
+        <td>${rideinfo.pickUpTime}</td>
 	  </tr>
 	 </#list>
 	</table>
