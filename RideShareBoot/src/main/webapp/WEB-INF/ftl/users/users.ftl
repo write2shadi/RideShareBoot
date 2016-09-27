@@ -3,9 +3,12 @@
 <#include "/_header.ftl">
 
 
-<h1>List of Users</h1>
+<h1 class="page-header">List of Users</h1>
 
-<table>
+<div class="table-responsive">
+    <table class="table table-bordered table-hover table-striped">
+	<thead>
+	<tr>
     <thead>
     <tr>
         <th>E-mail</th>

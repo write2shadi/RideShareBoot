@@ -11,19 +11,23 @@
 <form role="form" action="/login" method="post">
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
-    <div>
-        <label for="email">Email address</label>
-        <input type="email" name="email" id="email" required autofocus/>
+	<div class="form-group">
+         <label>Username</label>
+        <input type="email" name="email" id="email" class="form-control" placeholder="Username here .." required autofocus/>
     </div>
-    <div>
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" required/>
-    </div>
-    <div>
-        <label for="remember-me">Remember me</label>
-        <input type="checkbox" name="remember-me" id="remember-me"/>
-    </div>
-    <button type="submit">Sign in</button>
+    <div class="form-group">
+        <label>Password</label>
+        <input type="password" name="password" id="password" class="form-control" placeholder="Password" required autofocus/>
+    </div>                          
+  
+  
+    <div class="checkbox">
+                                    <label>
+                                         <input type="checkbox" name="remember-me" id="remember-me"/> Remember me
+                                    </label>
+                                </div>
+
+    <button type="submit"  class="btn btn-default">Sign in</button>
 </form>
 
 <#if error.isPresent()>

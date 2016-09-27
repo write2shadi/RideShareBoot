@@ -1,6 +1,7 @@
 package mum.ea.domain;
 
 import java.io.Serializable;
+
 import java.util.Date;
 
 import javax.persistence.AttributeOverride;
@@ -195,21 +196,8 @@ public class RideInfo implements Serializable
 				+ ", pickUpState=" + pickUpState + ", pickUpZip=" + pickUpZip + ", dropOffStreet=" + dropOffStreet
 				+ ", dropOffCity=" + dropOffCity + ", dropOffState=" + dropOffState + ", dropOffZip=" + dropOffZip
 				+ ", pickUpDate=" + pickUpDate + "]";
+
 	}
-
-
-
-//	public User getUser() {
-//		return user;
-//	}
-//
-//
-//
-//	public void setUser(User user) {
-//		this.user = user;
-//	}
-
-
 
 
 
