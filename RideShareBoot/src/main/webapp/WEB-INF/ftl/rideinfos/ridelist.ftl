@@ -4,22 +4,26 @@
 
 
 
-   <h1>List of RideInfos</h1>		
-	<br/>
-	<table id="listOfRideInfos" border="1">
+<h1 class="page-header">List of Rides</h1>
+
+<div class="table-responsive">
+    <table class="table table-bordered table-hover table-striped">
+	<thead>
 	<tr>
-	    <td>ID</td>
-	    <td>pickUpStreet</td>
-	    <td>pickUpCity</td>
-	    <td>pickUpState</td>
-	    <td>pickUpZip</td>
-	    <td>dropOffStreet</td>
-	    <td>dropOffCity</td>
-	    <td>dropOffState</td>
-	    <td>dropOffZip</td>
-        <td>pickUpDate</td>
-        <td>pickUpTime</td>
+	    <th>ID</th>
+	    <th>pickUpStreet</th>
+	    <th>pickUpCity</th>
+	    <th>pickUpState</th>
+	    <th>pickUpZip</th>
+	    <th>dropOffStreet</th>
+	    <th>dropOffCity</th>
+	    <th>dropOffState</th>
+	    <th>dropOffZip</th>
+        <th>pickUpDate</th>
+        <th>pickUpTime</th>
 	  </tr>
+	  </thead>
+	  <tbody>
 	  <#list allRideInfos as rideinfo>	  	  
       <tr>
 	    <td>${rideinfo.rideId}</td>
@@ -35,6 +39,7 @@
         <td>${rideinfo.pickUpTime}</td>
 	  </tr>
 	 </#list>
+	 </tbody>
 	</table>
 
 <#include "/_footer.ftl">

@@ -91,7 +91,14 @@
 						    <li><a href="/cars">Manage Cars</a></li>
 							<li><a href="/cars/add">Add Car</a></li>
 						</ul>
-					</li>    
+					</li>
+					<li>	
+						<a href="javascript:;" data-toggle="collapse" data-target="#cars">Rides Management</a>
+						<ul id="users">
+						    <li><a href="/rideinfos">Rides infos</a></li>
+							<li><a href="/rideinfos/rideadd">Add a Ride</a></li>
+						</ul>
+					</li>     
 					<#if currentUser??>
 			        <li>
 			            <form action="/logout" method="post" id="logoutFrm">
