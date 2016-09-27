@@ -4,17 +4,21 @@
 
 
 
-   <h1>List of Cars</h1>		
+   <h1 class="page-header">List of Cars</h1>		
 	<br/>
-	<table id="listOfCars" border="1">
+	<div class="table-responsive">
+    <table class="table table-bordered table-hover table-striped">
+	<thead>
 	<tr>
-	    <td>ID</td>
-	    <td>Car Make</td>
-	    <td>Car Model</td>
-	    <td>Car Year</td>
-	    <td>Car Color</td>
-	    <td>Car Type</td>	   
+	    <th>ID</th>
+	    <th>Car Make</th>
+	    <th>Car Model</th>
+	    <th>Car Year</th>
+	    <th>Car Color</th>
+	    <th>Car Type</th>	   
 	  </tr>
+	  </thead>
+	  <tbody>
 	  <#list allCars as car>	  	  
 	  <tr>
 	    <td>${car.id}</td>
@@ -25,6 +29,8 @@
 	    <td>${car.carType}</td>	    
 	  </tr>
 	 </#list>
+	 </tbody>
 	</table>
-
+   </div>
+   
 <#include "/_footer.ftl">
