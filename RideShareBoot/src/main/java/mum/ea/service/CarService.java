@@ -9,5 +9,6 @@ import mum.ea.domain.User;
 public interface CarService 
 {
 	public List<Car> getAllCars();	
+
 	public void addCar(Car car);
 }

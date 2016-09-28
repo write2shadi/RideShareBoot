@@ -11,6 +11,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import mum.ea.domain.Role;
 import mum.ea.domain.UserCreateForm;
 import mum.ea.domain.validator.UserCreateFormValidator;
 import mum.ea.service.UserService;
@@ -53,15 +54,15 @@ public class UserController {
                 .orElseThrow(() -> new NoSuchElementException(String.format("User=%s not found", id))));
     }
 
-    @PreAuthorize("hasAuthority('ADMIN')")
-    @RequestMapping(value = "/users/add", method = RequestMethod.GET)
+    
+    @RequestMapping(value = "/register", method = RequestMethod.GET)
     public ModelAndView getUserCreatePage() {
         LOGGER.debug("Getting user create form");
         return new ModelAndView("users/add", "form", new UserCreateForm());
     }
 
-    @PreAuthorize("hasAuthority('ADMIN')")
-    @RequestMapping(value = "/users/add", method = RequestMethod.POST)
+    
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String handleUserCreateForm(@Valid @ModelAttribute("form") UserCreateForm form, BindingResult bindingResult) {
         LOGGER.debug("Processing user create form={}, bindingResult={}", form, bindingResult);
         if (bindingResult.hasErrors()) {
@@ -69,7 +70,8 @@ public class UserController {
             return "users/add";
         }
         try {
-            userService.create(form);
+        	form.setRole(Role.CUSTOMER);
+            userService.create(form);            
         } catch (DataIntegrityViolationException e) {
             // probably email already exists - very rare case when multiple admins are adding same user
             // at the same time and form validation has passed for more than one of them.
@@ -78,7 +80,7 @@ public class UserController {
             return "users/add";
         }
         // ok, redirect
-        return "redirect:/users";
+        return "redirect:/login";
     }
 
 }
