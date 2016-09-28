@@ -23,5 +23,6 @@ public class RideInfoValidator implements Validator {
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "dropOffStreet", "error.dropOffStreet", "Drop Off Street name is required.");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "dropOffCity", "error.dropOffCity", "Drop Off City is required.");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "dropOffState", "error.dropOffState", "Drop Off State is required.");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "pickUpDate", "error.pickUpDate", "Pick UpDate is required.");
 	}
 }

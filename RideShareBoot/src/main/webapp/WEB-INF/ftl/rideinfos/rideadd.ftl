@@ -53,12 +53,12 @@
 			</div>
 			<div class="form-group">
         		<label>Pick Up Date</label>
-				<input class="form-control"  type="date" name="pickUpDate" id="pickUpDate" value="${form.pickUpDate?date}" />				
+				<input class="form-control"  type="date" name="pickUpDate" id="pickUpDate" value="${(form.pickUpDate?date)!"dd/MM/yyyy"}" />				
 			</div>
 			
 			<div class="form-group ">
         		<label>Pick Up Time</label>
-				<input class="form-control"  type="time" name="pickUpTime" id="pickUpTime" value="${form.pickUpTime?time}" />				
+				<input class="form-control"  type="time" name="pickUpTime" id="pickUpTime" value="${(form.pickUpTime?time)!"01:00 AM"}" />				
 			</div>
 			
 			<div class="form-group">

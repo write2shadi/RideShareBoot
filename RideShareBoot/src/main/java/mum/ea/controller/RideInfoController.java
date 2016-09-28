@@ -124,11 +124,30 @@ public class RideInfoController {
 	
     
     @RequestMapping(value = "/rideinfos/rideadd", method = RequestMethod.POST)
-    public String handleUserCreateForm(@Valid @ModelAttribute("form") RideInfo form, BindingResult bindingResult) {
+    public ModelAndView handleUserCreateForm(@Valid @ModelAttribute("form") RideInfo form, BindingResult bindingResult) {
         
+    	
+		
         if (bindingResult.hasErrors()) {
+        	ModelAndView mv = new ModelAndView("/rideinfos/rideadd", "form", form);
+    		
+    		
+    		// get current logged in user
+    		User u =  ((CurrentUser)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUser() ;
+    		
+    		List<Car> myCars;
+    		
+    		Optional<User> dbUser = userService.getUserById(u.getId());
+    		if(dbUser.isPresent())
+    			myCars = dbUser.get().getCarInfos();
+    		else
+    			myCars = new ArrayList<Car>();
+    			
+    		mv.addObject("myCars", myCars);
+    	
+    		
             // failed validation
-            return "rideinfos/rideadd";
+            return mv;
         }
        
        
@@ -136,8 +155,8 @@ public class RideInfoController {
 
 
         // ok, redirect
-        return "redirect:/rideinfos";
-    }
+        return new ModelAndView("redirect:/rideinfos");
+    } 
     
 
 }
