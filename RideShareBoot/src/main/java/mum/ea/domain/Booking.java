@@ -1,7 +1,7 @@
 package mum.ea.domain;
 
 import java.io.Serializable;
-import java.util.Date;
+
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,7 +10,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table (name="bookinginfo")
@@ -28,7 +27,7 @@ public class Booking implements Serializable
 	@ManyToOne
 	private RideInfo ride;
 	
-	@NotEmpty
+	@NotNull
 	private int numberOfSeats;
 
 	
@@ -80,6 +79,12 @@ public class Booking implements Serializable
 	
 	@Override
 	public String toString() {
-		return "booking [id=" + id ;
+		return "booking [id=" + id +", user=" + user +",ride="+ride+",numberOfSeats="+numberOfSeats;
 	}
+	
+	
+	
+	
+	
+	
 }
