@@ -44,7 +44,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">RideShare App</a>
+                <a class="navbar-brand" href="/">RideShare App</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -101,7 +101,7 @@
 					<li>	
 						<a href="javascript:;" data-toggle="collapse" data-target="#cars">Rides Management</a>
 						<ul id="users">
-						    <li><a href="/rideinfos">Rides infos</a></li>
+						    <li><a href="/rideinfos">My Rides</a></li>
 							<li><a href="/rideinfos/rideadd">Add a Ride</a></li>
 						</ul>
 					</li>     

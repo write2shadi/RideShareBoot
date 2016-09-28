@@ -41,6 +41,9 @@ public class User {
 
 	
 	
+	@OneToMany(mappedBy="user")
+	private List<Booking> bookings = new ArrayList<Booking>();;
+	
 	
 	@OneToMany(mappedBy="user")
 	private List<Car> carInfos = new ArrayList<Car>();
@@ -60,6 +63,14 @@ public class User {
                 ", role=" + role +
                 '}';
     }
+
+	public List<Booking> getBookings() {
+		return bookings;
+	}
+
+	public void setBookings(List<Booking> bookings) {
+		this.bookings = bookings;
+	}
 
 	public Long getId() {
 		return id;

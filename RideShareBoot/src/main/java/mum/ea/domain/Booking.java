@@ -27,19 +27,13 @@ public class Booking implements Serializable
 	@ManyToOne
 	private RideInfo ride;
 	
-	@NotNull
-	private int numberOfSeats;
 
 	
 	
 
 	public Booking() {}
 	 
-   
- 
-    public Booking(int numberOfSeats) {
-        this.numberOfSeats = numberOfSeats;
-    }
+
 
 	public Integer getId() {
 		return id;
@@ -51,13 +45,6 @@ public class Booking implements Serializable
 
 
 
-	public int getNumberOfSeats() {
-		return numberOfSeats;
-	}
-
-	public void setNumberOfSeats(int numberOfSeats) {
-		this.numberOfSeats = numberOfSeats;
-	}
 
 	public User getUser() {
 		return user;
@@ -79,7 +66,8 @@ public class Booking implements Serializable
 	
 	@Override
 	public String toString() {
-		return "booking [id=" + id +", user=" + user +",ride="+ride+",numberOfSeats="+numberOfSeats;
+		return "booking [id=" + id +", user=" + user +",ride="+ride
+				;
 	}
 	
 	

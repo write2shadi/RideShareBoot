@@ -82,7 +82,7 @@ public class BookingController {
 		    Booking b = new Booking();
 		    b.setRide(r);
 		    b.setUser(u);
-		    b.setNumberOfSeats(0);
+		    
 			bookingService.addBooking(b);
 			 return "redirect:/";
 	 

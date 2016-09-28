@@ -66,7 +66,24 @@ public class RideInfoController {
 	@RequestMapping(value = "/rideinfos",  method = RequestMethod.GET)
     public ModelAndView populateRideInfos() 
     {
-        List<RideInfo> rideInfos = rideInfoService.getAllRideInfos();        
+        List<RideInfo> rideInfos;
+        		
+		User u =  ((CurrentUser)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUser() ;
+		
+		if(u.getRole() == Role.ADMIN)
+			rideInfos = rideInfoService.getAllRideInfos();
+		else{
+			Optional<User> dbUser = userService.getUserById(u.getId());
+			if(dbUser.isPresent())
+				rideInfos = dbUser.get().getRideinfos();
+			else
+				rideInfos = new ArrayList<RideInfo>();
+		}
+		
+		
+         
+        
+        
         return new ModelAndView("rideinfos/ridelist", "allRideInfos", rideInfos);
     }
 	

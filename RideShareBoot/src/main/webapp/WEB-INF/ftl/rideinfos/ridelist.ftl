@@ -4,44 +4,45 @@
 
 
 
-<h1 class="page-header">List of Rides</h1>
+<h1 class="page-header">My Rides</h1>
 
 <div class="table-responsive">
     <table class="table table-bordered table-hover table-striped">
 	<thead>
-	<tr>
-	    <th>ID</th>
-	    <th>FirstName</th>
-	    <th>pickUpStreet</th>
-	    <th>pickUpCity</th>
-	    <th>pickUpState</th>
-	    <th>pickUpZip</th>
-	    <th>dropOffStreet</th>
-	    <th>dropOffCity</th>
-	    <th>dropOffState</th>
-	    <th>dropOffZip</th>
-        <th>pickUpDate</th>
-        <th>pickUpTime</th>
+	<tr>	    
+	    <th>Id</th>
+	    <th>Source</th>
+	    <th>Destination</th>	 
+	    <th>Booked By</th>  
 	  </tr>
 	  </thead>
 	  <tbody>
 	  <#list allRideInfos as rideinfo>	  	  
       <tr>
-	    <td>${rideinfo.rideId}</td>
-	    <td>${rideinfo.user.firstName}</td>
-	    <td>${rideinfo.pickUpStreet}</td>
-	    <td>${rideinfo.pickUpCity}</td>
-	    <td>${rideinfo.pickUpState}</td>
-	    <td>${rideinfo.pickUpZip}</td>
-	    <td>${rideinfo.dropOffStreet}</td>
-	    <td>${rideinfo.dropOffCity}</td>
-	    <td>${rideinfo.dropOffState}</td>
-	    <td>${rideinfo.dropOffZip}</td>
-        <td>${rideinfo.pickUpDate}</td>
-        <td>${rideinfo.pickUpTime}</td>
+	    <td>	 
+	    <b>ID# ${rideinfo.rideId}</b> <br />
+	    Pickup Date: ${rideinfo.pickUpDate} <br />
+	    Time: ${rideinfo.pickUpTime}
+	    </td>
+	    <td>${rideinfo.pickUpStreet}<br />
+	    ${rideinfo.pickUpCity}, ${rideinfo.pickUpZip}<br />
+	    ${rideinfo.pickUpState}
+	    </td>	    
+	    <td>${rideinfo.dropOffStreet}<br />
+	    ${rideinfo.dropOffCity}, ${rideinfo.dropOffZip}<br />
+	    ${rideinfo.dropOffState}
+	    </td>
+	    <td>
+	    <ul>
+	     <#list rideinfo.bookings as booking>
+	     	<li>${booking.user.firstName} (${booking.user.phone})</li>
+	     </#list>
+	     </ul>	  
+	    </td>
 	  </tr>
 	 </#list>
 	 </tbody>
 	</table>
+
 
 <#include "/_footer.ftl">
