@@ -12,12 +12,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.data.annotation.Transient;
+
 
 
 @Entity
@@ -26,12 +29,22 @@ public class RideInfo implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 
+	
+	
 	@Id
     @GeneratedValue
 	private Integer rideId;
 	
 	@ManyToOne
 	private User user;
+	
+	@ManyToOne
+	private Car car;
+	
+	
+
+	@Transient
+	private Integer SelectedCarId = 0;
 	
 	@NotEmpty
 	private String pickUpStreet = "";
@@ -59,7 +72,15 @@ public class RideInfo implements Serializable
      
  
 
+	
+	public Integer getSelectedCarId() {
+		return SelectedCarId;
+	}
 
+
+	public void setSelectedCarId(Integer selectedCarId) {
+		SelectedCarId = selectedCarId;
+	}
 
 	public User getUser() {
 		return user;
@@ -214,6 +235,15 @@ public class RideInfo implements Serializable
 
 	}
 
+
+	public Car getCar() {
+		return car;
+	}
+
+
+	public void setCar(Car car) {
+		this.car = car;
+	}
 
 
 
