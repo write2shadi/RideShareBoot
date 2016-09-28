@@ -30,8 +30,8 @@ public class RideInfo implements Serializable
     @GeneratedValue
 	private Integer rideId;
 	
-//	@ManyToOne
-//	private User user;
+	@ManyToOne
+	private User user;
 	
 	@NotEmpty
 	private String pickUpStreet = "";
@@ -58,9 +58,24 @@ public class RideInfo implements Serializable
 	 
      
  
-//    public RideInfoEntity(User user) {
-//        this.user = user;
-//    }
+
+
+
+	public User getUser() {
+		return user;
+	}
+
+
+
+
+
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+
+
 
 
 

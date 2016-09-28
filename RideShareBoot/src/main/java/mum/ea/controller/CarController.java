@@ -1,6 +1,8 @@
 package mum.ea.controller;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import javax.validation.ConstraintViolation;
@@ -10,6 +12,9 @@ import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 
 import mum.ea.domain.Car;
+import mum.ea.domain.CurrentUser;
+import mum.ea.domain.Role;
+import mum.ea.domain.User;
 import mum.ea.domain.UserCreateForm;
 import mum.ea.domain.validator.CarInfoFormValidator;
 import mum.ea.domain.validator.UserCreateFormValidator;
@@ -19,6 +24,7 @@ import mum.ea.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -37,15 +43,17 @@ import org.springframework.web.servlet.ModelAndView;
 public class CarController {
 	
 	CarService carService;
-
+	UserService userService;
+	
 	private final CarInfoFormValidator carInfoFormValidator;
 
 	@Autowired
 	//Bind custom validator for submitted form
-	public CarController(CarService carService, CarInfoFormValidator carInfoFormValidator)
+	public CarController(CarService carService, UserService userService, CarInfoFormValidator carInfoFormValidator)
 	{
 		this.carService = carService;
 		this.carInfoFormValidator = carInfoFormValidator;
+		this.userService = userService;
 	}
 	
 
@@ -56,7 +64,19 @@ public class CarController {
 	@RequestMapping(value = "/cars",  method = RequestMethod.GET)
     public ModelAndView populateCars() 
     {
-        List<Car> cars = carService.getAllCars();        
+		List<Car> cars;
+		User u =  ((CurrentUser)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUser() ;
+		
+		if(u.getRole() == Role.ADMIN)
+			cars = carService.getAllCars();
+		else{
+			Optional<User> dbUser = userService.getUserById(u.getId());
+			if(dbUser.isPresent())
+				cars = dbUser.get().getCarInfos();
+			else
+				cars = new ArrayList<Car>();
+		}
+		
         return new ModelAndView("cars/list", "allCars", cars);
     }
 	

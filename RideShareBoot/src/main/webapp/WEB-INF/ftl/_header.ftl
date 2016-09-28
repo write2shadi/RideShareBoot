@@ -51,7 +51,11 @@
               <#if !currentUser??>
                <li class="dropdown">
                     
-                    <a href="/login"><i class="fa fa-user"></i> login </a>
+                    <a href="/login"><i class="fa fa-user"></i> Login </a>
+                    
+			  </li>
+			  <li class="dropdown">
+			  <a href="/register"><i class="fa fa-user"></i> Register </a>
 			  </li>
 			  </#if>	
               <#if currentUser??>
@@ -75,16 +79,18 @@
 					 <ul class="nav navbar-nav side-nav">
 					<li><a href="/">Home</a></li>
 				
-
+ 					
 					<#if currentUser?? && currentUser.role == "ADMIN">					  			        
 					<li>			
-					    <a href="javascript:;" data-toggle="collapse" data-target="#users">Users Management</a>
-						<ul id="users">
+
 						    <li><a href="/users">Manage Users</a></li>
-							<li><a href="/users/add">Add User</a></li>
-						</ul>
+					
 					</li>
 					</#if>
+					<#if currentUser?? && (currentUser.role == "CUSTOMER")>
+							<li><a href="/cars/add">Driver? Add a Car</a></li>
+					</#if>
+					<#if currentUser?? && (currentUser.role == "ADMIN" || currentUser.role == "DRIVER")>
 					<li>	
 						<a href="javascript:;" data-toggle="collapse" data-target="#cars">Cars Management</a>
 						<ul id="users">
@@ -99,6 +105,7 @@
 							<li><a href="/rideinfos/rideadd">Add a Ride</a></li>
 						</ul>
 					</li>     
+					</#if>
 					<#if currentUser??>
 			        <li>
 			            <form action="/logout" method="post" id="logoutFrm">
@@ -106,6 +113,9 @@
 			            </form>
 			        </li>
 			        </#if>
+			        <#if !currentUser??>
+ 						<li><a href="/register">Register Customer</a></li>
+ 					</#if>
 					</ul>
 					
 					</nav>    

@@ -7,26 +7,31 @@
 
 <h2>Add New Ride</h2>
 	<br/>
+	<div class="col-lg-6">
 		<form role="form" name="form" action="" method="post">
 		<input class="form-control"  type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 		
 			<div class="form-group">
         		<label>Pick Up Street</label>
-				<input class="form-control"  type="text" name="pickUpStreet" id="pickUpStreet" value="${form.pickUpStreet}" required autofocus />				
+				<input class="form-control"  type="text" name="pickUpStreet" id="pickUpStreet" value="${form.pickUpStreet}" required autofocus />
+				<p class="help-block">4th, Lincoln Street..</p>				
 			</div>
 				<div class="form-group">
         		<label>Pick Up City</label>
-        		<input class="form-control"  type="text" name="pickUpCity" id="pickUpCity" value="${form.pickUpCity}" required  />				
+        		<input class="form-control"  type="text" name="pickUpCity" id="pickUpCity" value="${form.pickUpCity}" required  />
+        		<p class="help-block">fairfield..</p>					
 			</div>
 
 			<div class="form-group">
         		<label>Pick Up State</label>
-				<input class="form-control"  type="text" name="pickUpState" id="pickUpState" value="${form.pickUpState}" required />				
+				<input class="form-control"  type="text" name="pickUpState" id="pickUpState" value="${form.pickUpState}" required />	
+				<p class="help-block">IOWA..</p>			
 			</div>
 
 			<div class="form-group">
         		<label>Pick Up Zip</label>
-				<input class="form-control"  type="text" name="pickUpZip" id="pickUpZip" value="${form.pickUpZip}"/>				
+				<input class="form-control"  type="text" name="pickUpZip" id="pickUpZip" value="${form.pickUpZip}"/>
+				<p class="help-block">52557..</p>				
 			</div>
 
 			<div class="form-group">
@@ -46,17 +51,17 @@
         		<label>Drop Off Zip</label>
 				<input class="form-control"  type="text" name="dropOffZip" id="dropOffZip" value="${form.dropOffZip}" />				
 			</div>
-			<div class="form-group">
+			<div class="form-group col-xs-4">
         		<label>Pick Up Date</label>
 				<input class="form-control"  type="date" name="pickUpDate" id="pickUpDate" value="${form.pickUpDate?date}" />				
 			</div>
 			
-			<div class="form-group">
+			<div class="form-group col-xs-4">
         		<label>Pick Up Time</label>
 				<input class="form-control"  type="time" name="pickUpTime" id="pickUpTime" value="${form.pickUpTime?time}" />				
 			</div>
 			<div class="form-group">
-				<input class="form-control"  type="submit" value="Add Ride"/>
+				<input class="form-control btn btn-primary"  type="submit" value="Add Ride"/>
 			</div>
 		
 	</form>
