@@ -5,7 +5,7 @@
 <#include "/_header.ftl">
 
 
-<h1 class="page-header">Create a new user</h1>
+<h1 class="page-header">Register New Customer!</h1>
 
 <@spring.bind "form" />
 <#if spring.status.error>
@@ -42,14 +42,8 @@
         <input class="form-control" type="password" name="passwordRepeated" id="passwordRepeated" required/>
     </div>
     
-    <div class="form-group">
-        <label for="role">Role</label>
-        <select name="role" id="role" required class="form-control">
-            <option <#if form.role == 'CUSTOMER'>selected</#if> value="CUSTOMER">Customer</option>
-            <option <#if form.role == 'DRIVER'>selected</#if> value="DRIVER">Driver</option>
-            <option <#if form.role == 'ADMIN'>selected</#if> value="ADMIN">Administrator</option>
-        </select>
-    </div>
+
+
     <div class="form-group">
         <label>First Name</label>
         <input class="form-control" type="text" name="firstName" id="firstName" required/>
@@ -83,7 +77,7 @@
         <input class="form-control" type="text" name="zipCode" id="zipCode" required/>
     </div>     
             
-    <button class="btn btn-default" type="submit">Save</button>
+    <button class="btn btn-default" type="submit">Create Account & Go to Login</button>
 </form>
 </div>
 <br />

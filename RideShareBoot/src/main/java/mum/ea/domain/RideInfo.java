@@ -1,11 +1,8 @@
 package mum.ea.domain;
 
 import java.io.Serializable;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+
 import java.util.Date;
-import java.util.Locale;
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
@@ -21,7 +18,6 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
-import org.springframework.format.annotation.DateTimeFormat;
 
 
 @Entity
@@ -54,13 +50,8 @@ public class RideInfo implements Serializable
 
 	private String dropOffZip = "";
 	
-	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern="yyyy-MM-dd")
-	private Date pickUpDate=new Date();
-	
-	@Temporal(TemporalType.TIME)
-	@DateTimeFormat(pattern="HH:mm")
-	private Date pickUpTime=new Date();
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date pickUpDate;
 	
 	
 	public RideInfo() {}
@@ -214,42 +205,14 @@ public class RideInfo implements Serializable
 
 
 
-	public Date getPickUpTime() {
-		return pickUpTime;
-	}
-
-
-
-	public void setPickUpTime(Date pickUpTime) {
-		this.pickUpTime = pickUpTime;
-	}
-	
-	
-
-
-
-
 	@Override
 	public String toString() {
 		return "RideInfo [rideId=" + rideId + ", pickUpStreet=" + pickUpStreet + ", pickUpCity=" + pickUpCity
 				+ ", pickUpState=" + pickUpState + ", pickUpZip=" + pickUpZip + ", dropOffStreet=" + dropOffStreet
 				+ ", dropOffCity=" + dropOffCity + ", dropOffState=" + dropOffState + ", dropOffZip=" + dropOffZip
-				+ ", pickUpDate=" + pickUpDate + ", pickUpTime=" + pickUpTime + "]";
+				+ ", pickUpDate=" + pickUpDate + "]";
+
 	}
-
-
-
-//	public User getUser() {
-//		return user;
-//	}
-//
-//
-//
-//	public void setUser(User user) {
-//		this.user = user;
-//	}
-
-
 
 
 
