@@ -6,6 +6,7 @@
 
 
  <h1 class="page-header">Add New Booking</h1>
+ 
 <@spring.bind "form" />
 <#if spring.status.error>
  <div class="row">
