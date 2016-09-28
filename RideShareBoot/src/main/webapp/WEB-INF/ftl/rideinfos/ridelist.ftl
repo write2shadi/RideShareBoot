@@ -11,6 +11,7 @@
 	<thead>
 	<tr>
 	    <th>ID</th>
+	    <th>FirstName</th>
 	    <th>pickUpStreet</th>
 	    <th>pickUpCity</th>
 	    <th>pickUpState</th>
@@ -27,6 +28,7 @@
 	  <#list allRideInfos as rideinfo>	  	  
       <tr>
 	    <td>${rideinfo.rideId}</td>
+	    <td>${rideinfo.user.firstName}</td>
 	    <td>${rideinfo.pickUpStreet}</td>
 	    <td>${rideinfo.pickUpCity}</td>
 	    <td>${rideinfo.pickUpState}</td>

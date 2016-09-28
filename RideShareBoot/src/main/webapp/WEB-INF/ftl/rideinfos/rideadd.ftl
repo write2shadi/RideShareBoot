@@ -51,14 +51,23 @@
         		<label>Drop Off Zip</label>
 				<input class="form-control"  type="text" name="dropOffZip" id="dropOffZip" value="${form.dropOffZip}" />				
 			</div>
-			<div class="form-group col-xs-4">
+			<div class="form-group">
         		<label>Pick Up Date</label>
 				<input class="form-control"  type="date" name="pickUpDate" id="pickUpDate" value="${form.pickUpDate?date}" />				
 			</div>
 			
-			<div class="form-group col-xs-4">
+			<div class="form-group ">
         		<label>Pick Up Time</label>
 				<input class="form-control"  type="time" name="pickUpTime" id="pickUpTime" value="${form.pickUpTime?time}" />				
+			</div>
+			
+			<div class="form-group">
+        		<label>Car</label>
+				<select name="selectedCarId" class="form-control" >
+				 <#list myCars as car>
+				 	<option value="${car.id}">${car.carMake} - ${car.carModel} (${car.carYear})</option>
+				 </#list>
+				</select>				
 			</div>
 			<div class="form-group">
 				<input class="form-control btn btn-primary"  type="submit" value="Add Ride"/>

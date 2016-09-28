@@ -7,6 +7,6 @@ import mum.ea.domain.User;
 
 import java.util.Optional;
 
-public interface CarRepository extends JpaRepository<Car, Long> {
+public interface CarRepository extends JpaRepository<Car, Integer> {
     
 }
