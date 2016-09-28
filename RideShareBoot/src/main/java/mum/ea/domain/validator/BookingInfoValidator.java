@@ -21,7 +21,7 @@ public class BookingInfoValidator implements Validator {
 
 
 
-    @Autowired
+   @Autowired
 	BookingService bookingService;
 
     @Autowired
