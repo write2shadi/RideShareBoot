@@ -11,6 +11,9 @@
 	<tr>
     <thead>
     <tr>
+    	<th>First Name</th>
+    	<th>Last Name</th>
+    	<th>City</th>
         <th>E-mail</th>
         <th>Role</th>
     </tr>
@@ -18,8 +21,11 @@
     <tbody>
     <#list users as user>
     <tr>
-        <td><a href="/user/${user.id}">${user.email}</a></td>
-        <td>${user.role}</td>
+        <td><a href="/user/${user.id}">${user.firstName}</a></td>
+        <td>${user.lastName}</td>
+        <td>${user.city}</td>
+        <td>${user.email}</td>
+        <td>${user.role}</td>        
     </tr>
     </#list>
     </tbody>
