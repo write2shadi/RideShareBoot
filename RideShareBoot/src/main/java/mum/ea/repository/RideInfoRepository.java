@@ -6,6 +6,6 @@ import mum.ea.domain.RideInfo;
 
 import java.util.Optional;
 
-public interface RideInfoRepository extends JpaRepository<RideInfo, Long> {
+public interface RideInfoRepository extends JpaRepository<RideInfo, Integer> {
     
 }

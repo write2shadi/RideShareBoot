@@ -33,8 +33,11 @@ public class RideInfoServiceImpl implements RideInfoService {
 	public List<RideInfo> getAllRideInfos() {
 		return rideInfoRepository.findAll();
 	}
-
-
+	
+	public RideInfo getRideInfoById(Integer id) {
+		return rideInfoRepository.getOne(id);
+	}
+	
 
 	public void addRideInfo(RideInfo rideinfo) {
 		
