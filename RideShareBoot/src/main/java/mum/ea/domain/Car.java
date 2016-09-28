@@ -11,6 +11,7 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+
 @Entity
 @Table (name="carinfo")
 public class Car implements Serializable 
@@ -37,7 +38,24 @@ public class Car implements Serializable
 	@NotEmpty
 	private String carType = "";
 	
+	@ManyToOne
+	private User user;
 	
+	
+	public User getUser() {
+		return user;
+	}
+
+
+
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+
+
+
 	public Car() {}
 
 
