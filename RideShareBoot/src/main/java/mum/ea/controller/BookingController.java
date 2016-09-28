@@ -57,7 +57,7 @@ public class BookingController {
 	
 	//  Bind all bookings list
 	 
-	@RequestMapping(value = "/bookings",  method = RequestMethod.GET)
+	/*@RequestMapping(value = "/bookings",  method = RequestMethod.GET)
     public ModelAndView populateBookings() 
     {
         List<Booking> bookings = bookingService.getAllBookings();
@@ -69,7 +69,7 @@ public class BookingController {
 	{
 		Booking booking = new Booking();		
 		return new ModelAndView("bookings/add", "form", booking);
-	}
+	}*/
 
 	// ride id is passed
 	 @RequestMapping("/bookings/book/{id}")
@@ -89,7 +89,7 @@ public class BookingController {
 	 }
 
 	
-	  @RequestMapping(value = "/bookings/add", method = RequestMethod.POST)
+	/*  @RequestMapping(value = "/bookings/add", method = RequestMethod.POST)
 	    public String handleUserCreateForm(@Valid @ModelAttribute("form") Booking form, BindingResult bindingResult) {
 	        
 	        if (bindingResult.hasErrors()) {
@@ -103,7 +103,7 @@ public class BookingController {
 
 	       
 	        return "redirect:/bookings";
-	    }
+	    }*/
 	    
 	
 	

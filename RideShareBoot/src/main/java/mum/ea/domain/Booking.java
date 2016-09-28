@@ -29,8 +29,6 @@ public class Booking implements Serializable
 	
 
 	
-	
-
 	public Booking() {}
 	 
 
